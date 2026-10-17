@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "author": "Nafeesath Nawfa L H F",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-mpu6050", "id": "imu1", "top": -15.38, "left": -103.28, "attrs": {} },
+    {
+      "type": "wokwi-pushbutton-6mm",
+      "id": "btn1",
+      "top": 103.4,
+      "left": 134.4,
+      "attrs": { "color": "green", "xray": "1" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "imu1:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "imu1:GND", "esp:GND.2", "black", [ "v0" ] ],
+    [ "imu1:SCL", "esp:22", "green", [ "v0" ] ],
+    [ "esp:21", "imu1:SDA", "gold", [ "h0" ] ],
+    [ "esp:4", "btn1:1.l", "green", [ "h0" ] ],
+    [ "btn1:2.r", "esp:GND.3", "green", [ "h29.6", "v-47.6" ] ]
+  ],
+  "dependencies": {}
+}
